@@ -1,4 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ergo</title><link>https://ergoplatform.org/cn/</link><description>Recent content on Ergo</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Wed, 03 Feb 2021 08:03:00 +0000</lastBuildDate><atom:link href="https://ergoplatform.org/cn/index.xml" rel="self" type="application/rss+xml"/><item><title>硬分叉事后说明</title><link>https://ergoplatform.org/cn/blog/2021-02-03-%E7%A1%AC%E5%88%86%E5%8F%89%E4%BA%8B%E5%90%8E%E8%AF%B4%E6%98%8E/</link><pubDate>Wed, 03 Feb 2021 08:03:00 +0000</pubDate><guid>https://ergoplatform.org/cn/blog/2021-02-03-%E7%A1%AC%E5%88%86%E5%8F%89%E4%BA%8B%E5%90%8E%E8%AF%B4%E6%98%8E/</guid><description>英文链接：https://www.ergoforum.org/t/hardening-hard-fork-post-mortem/599
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ergo</title><link>https://ergoplatform.org/cn/</link><description>Recent content on Ergo</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Fri, 21 May 2021 09:41:02 +0000</lastBuildDate><atom:link href="https://ergoplatform.org/cn/index.xml" rel="self" type="application/rss+xml"/><item><title>一文读懂DeFi应用底层公链Ergo及区块链元老级技术大牛Alex</title><link>https://ergoplatform.org/cn/blog/2021-05-21-%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82defi%E5%BA%94%E7%94%A8%E5%BA%95%E5%B1%82%E5%85%AC%E9%93%BEergo%E5%8F%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%83%E8%80%81%E7%BA%A7%E6%8A%80%E6%9C%AF%E5%A4%A7%E7%89%9Balex/</link><pubDate>Fri, 21 May 2021 09:41:02 +0000</pubDate><guid>https://ergoplatform.org/cn/blog/2021-05-21-%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82defi%E5%BA%94%E7%94%A8%E5%BA%95%E5%B1%82%E5%85%AC%E9%93%BEergo%E5%8F%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%83%E8%80%81%E7%BA%A7%E6%8A%80%E6%9C%AF%E5%A4%A7%E7%89%9Balex/</guid><description>{width=&amp;ldquo;5.759722222222222in&amp;rdquo; height=&amp;ldquo;3.0076388888888888in&amp;rdquo;}
+Ergo是一个开放、无需许可的综合性DeFi公链平台，ERG总供应量非常有限，不足一亿枚。该平台基于PoW机制和UTXO模型构建，遵守的原则跟比特币一样，但它的功能比比特币多得多。换言之，如果比特币是数字黄金，那么ERG就是&amp;quot;可编程数字黄金&amp;quot;。Ergo将于2021年1月27日进行硬分叉，将开启一个新的时代，向所有人开放挖矿，同时将允许矿池存在，拥有2GB或以上内存的GPU矿工都可来挖ERG。
+笔者花了20天时间研读数万单词的Ergo相关英文材料，最后于2020年12月15日完成本文的编译。全篇内容取材于Google能检索到的英文资料和Ergo平台官网英文资料，笔者是专注于区块链技术翻译的职业翻译和区块链技术爱好者。
+欢迎区块链技术爱好者、区块链技术开发者、矿工、加密货币持有者以及愿意了解区块链技术和加密货币的圈外人士认真阅读此文，只有认真研读区块链技术才能判断项目是否有价值，有发展潜力。建议大家从判断公链能否解决不可能三角问题（即去中心化、可扩展性（即交易速度）、安全性）的角度去分析，另外，还要看公链项目是如何解决跨链互操作性、可持续性和预言机等问题。希望大家阅读此文后有所收获，并做出正确的判断。
+目录
+Ergo平台&amp;mdash;&amp;mdash;去中心化的DeFi应用底层公链 3
+愿景&amp;mdash;&amp;mdash;做一个能让你用一辈子的金融合约平台 3
+真正去中心化&amp;mdash;&amp;mdash;从挖矿、治理与开发以及服务等方面杜绝中心化 4
+极具适应力、可长期生存&amp;mdash;&amp;mdash;将来无需&amp;quot;核心开发者&amp;quot;团队干预 4
+原生代币ERG&amp;mdash;&amp;mdash;不搞ICO和风投，数量稀缺，可作价值存储 4
+全新PoW共识机制Autolykos&amp;mdash;&amp;mdash;包括普通人在内的所有人均可参与挖矿 5
+西格玛协议&amp;mdash;&amp;mdash;能保护隐私，再也不担心身份泄漏 6
+全新&amp;quot;存储租赁费&amp;quot;激励机制&amp;mdash;&amp;mdash;全部代币挖完还能继续挖，增强网络安全性 7
+原创脚本语言ErgoScript&amp;mdash;&amp;mdash;让Ergo实现复杂金融合约的能力远超对手 7
+NiPoPoW支持跨链和轻客户端&amp;mdash;&amp;mdash;交易速度快，在智能手机上就能使用Ergo 8
+技术框架&amp;mdash;&amp;mdash;Scorex框架 9
+自定义代币享头等公民待遇&amp;mdash;&amp;mdash;在Ergo平台上交易不用ERG支付手续费也行 9
+适用范围广&amp;mdash;&amp;mdash;图灵完备，可防止DoS攻击和阻止程序停机 9
+Ergo与Emurgo寻求合作共赢 10
+Yoroi钱包&amp;mdash;&amp;mdash;现已支持ERG，将开启用户进入Ergo生态系统的门户 10
+DeFi合作&amp;mdash;&amp;mdash;求同存异，优势互补，相互成就 11
+携手打造具有革命性意义、让数据源去中心化的预言机池 12
+构建将优于Maker DAO的算法稳定币AgeUSD&amp;mdash;&amp;mdash;解决稳定币中心化和波动的问题 13
+跟Gravity和Waves合作&amp;mdash;&amp;mdash;解决跨链互操作性问题 15
+同行评价&amp;mdash;&amp;mdash;前以太坊联合创始人兼Cardano创始人Charles非常看好Ergo 16
+近期活动&amp;mdash;&amp;mdash;请重点关注硬分叉，硬分叉后所有人都能参与挖矿 17
+硬分叉介绍 17
+新的开发者工具介绍 18
+Ergonaut拍卖与NFT 19
+2020-2021最新路线图 22
+技术团队及区块链元老级人物Alex&amp;mdash;&amp;mdash;10年区块链理论研究和实战开发经验 23
+Ergo官方链接 25
+Ergo平台&amp;mdash;&amp;mdash;去中心化的DeFi应用底层公链
+Ergo平台（亦称&amp;quot;尔格平台&amp;quot;）是一个安全、适应力强、开放、无需许可、去中心化的DeFi应用底层公链平台，主要专注于提供一种高效、安全、简便的方式去实现金融合约，也是一个合约币和智能合约平台。其背后技术团队拥有10年区块链理论研究和实战开发经验，Ergo将以此为基础构建高级加密功能和全新DeFi功能。Ergo现有实例涉及众筹、预言机、去中心化交易所、算法稳定币、拍卖等。其联合创始人兼CTO是区块链元老级人物Alexander Chepurnoy，他也是Ergo的核心开发者。
+早在2017年DeFi概念未火之时，就已将Ergo设计用于DeFi。Ergo是一个PoW机制的加密货币，是基于久经考验的科学研究和经同行评审的论文进行设计的，具有开放、无需许可、去中心化等特点，Ergo是为普通人搭建的，任何人都可以在Ergo平台上面搭建应用。另外，比特币所具备的开放、无需许可等特点，正如前面所提到的，Ergo也有，而且Ergo的功能比比特币多得多。Ergo采用扩展UTXO（Extended UTXO或EUTX）系统，能实现在比特币上无法实现的很多功能。扩展UTXO，即扩展未花费交易输出，是对比特币UTXO模型的一种扩展，它支持实质更具表达性的验证脚本，包括实现一般状态机和执行各完整交易链之间的不变量的脚本，EUTXO兼具比特币UTXO模型的语言简单性优势和以太坊账户模型的智能合约表达性优势。任何人都可以在Ergo平台上发行自定义代币。此外，在Ergo平台上搭建去中心化交易所（Dex）非常容易，目前已有一个或更多Dex正在开发中。
+愿景&amp;mdash;&amp;mdash;做一个能让你用一辈子的金融合约平台
+由于区块链领域发展停滞不前，Ergo平台应运而生。经过数年研究和原型实现后，Ergo平台开发于2017年正式开始。它将实现各种现成技术和经济思想去增加价值同时不会削弱区块链系统的已知优势。正如本文开篇所述，Ergo平台主要专注于提供一种高效、安全的方式去实现金融合约，即区块链技术最广泛使用的应用。创建Ergo平台的初衷是为了提供一种简便的方式方便普通人使用金融合约，而且能够在无需任何第三方介入的情况下以去中心化的方式使用金融合约。与传统金融体系不同，Ergo协议的核心层上没有救助、黑名单或其他形式的歧视。Ergo协议被设计成可长期生存下去，有利于一人一辈子都可以在Ergo上面实现合约，也有利于Ergo原生代币ERG成为不错的价值存储。
+真正去中心化&amp;mdash;&amp;mdash;从挖矿、治理与开发以及服务等方面杜绝中心化
+Ergo是一个从头搭建的真正去中心化底层公链，不依附于任何其他区块链，将从各个层面杜绝中心化。Ergo采用的工作量证明（PoW）算法，可有效减少专业矿机ASIC和普通硬件的差距，允许普通人参与挖矿，有利于实现区块链真正去中心化。另外，Ergo的金库系统（Treasury System）可防止治理与开发中心化。轻节点具有很高的安全性保证，还可防止服务中心化。</description></item><item><title>关于Ergo基金会任命谭声情先生担任中国区大使的公告</title><link>https://ergoplatform.org/cn/blog/2021-05-16-%E5%85%B3%E4%BA%8Eergo%E5%9F%BA%E9%87%91%E4%BC%9A%E4%BB%BB%E5%91%BD%E8%B0%AD%E5%A3%B0%E6%83%85%E5%85%88%E7%94%9F%E6%8B%85%E4%BB%BB%E4%B8%AD%E5%9B%BD%E5%8C%BA%E5%A4%A7%E4%BD%BF%E7%9A%84%E5%85%AC%E5%91%8A/</link><pubDate>Sun, 16 May 2021 06:35:02 +0000</pubDate><guid>https://ergoplatform.org/cn/blog/2021-05-16-%E5%85%B3%E4%BA%8Eergo%E5%9F%BA%E9%87%91%E4%BC%9A%E4%BB%BB%E5%91%BD%E8%B0%AD%E5%A3%B0%E6%83%85%E5%85%88%E7%94%9F%E6%8B%85%E4%BB%BB%E4%B8%AD%E5%9B%BD%E5%8C%BA%E5%A4%A7%E4%BD%BF%E7%9A%84%E5%85%AC%E5%91%8A/</guid><description>经Ergo基金会批准，现任命谭声情先生（英文名：Tango）担任Ergo中国区大使。
+为了提升Ergo在中国的知名度与影响力，Ergo基金会现授权谭声情先生以Ergo中国区大使身份进行Ergo在中国的品牌宣传、商务洽谈、社区活动、主题推广等事宜。
+此任命自公告之日起生效。
+Ergo中国区大使谭声情先生</description></item><item><title>硬分叉事后说明</title><link>https://ergoplatform.org/cn/blog/2021-02-03-%E7%A1%AC%E5%88%86%E5%8F%89%E4%BA%8B%E5%90%8E%E8%AF%B4%E6%98%8E/</link><pubDate>Wed, 03 Feb 2021 08:03:00 +0000</pubDate><guid>https://ergoplatform.org/cn/blog/2021-02-03-%E7%A1%AC%E5%88%86%E5%8F%89%E4%BA%8B%E5%90%8E%E8%AF%B4%E6%98%8E/</guid><description>英文链接：https://www.ergoforum.org/t/hardening-hard-fork-post-mortem/599
 应@kushti的请求，我现在给大家说明一下今天在硬分叉升级期间发生的事情。有一些BUG导致矿工无法出块，现已修补好这些BUG，矿工可以出块。
 version2ActivationDifficultyHex中出现往返编码失败（Round-Trip Encoding Failure）
 进行硬分叉的主要原因是为了切换到新的工作量证明。从理论上讲，新的工作量证明应该会增加挖矿难度，因此，在进行工作量证明切换时调整了难度。

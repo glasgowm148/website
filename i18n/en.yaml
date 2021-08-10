@@ -100,6 +100,10 @@
 - id: blog_section
   translation: Blog
 
+- id: partners_section
+  translation: Partners
+
+
 - id: services_title
   translation: Ergo Services
 
